@@ -8,9 +8,9 @@ style = ttk.Style()
 style.theme_use("clam")
 canvas = tk.Canvas(root, bg="black")
 canvas.place(x=0, y=0, width=800, height=600)
-def PRINT(text: str):
-    print(text)
 
+def PRINT(text: str, color: str):
+    canvas.create_text(400, 300, fill=color, text=text)
 def SQUARE(x1:int, y1:int, x2:int, y2:int, color:str):
     canvas.create_rectangle(x1, y1, x2, y2, fill=color)
 def LINE(x1:int, y1:int, x2:int, y2:int, color:str, thickness:int):

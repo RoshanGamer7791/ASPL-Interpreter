@@ -9,8 +9,12 @@ style.theme_use("clam")
 canvas = tk.Canvas(root, bg="black")
 canvas.place(x=0, y=0, width=800, height=600)
 
-def PRINT(text: str, color: str):
-    canvas.create_text(400, 300, fill=color, text=text)
+def START():
+    ...
+def PRINT(text: str):
+    canvas.create_text(400, 300, fill="white", text=text)
+def SPECIALTEXT(text:str, x:int, y:int, color:str, font:str, fontsize:int, fontspecifics:str):
+    canvas.create_text(x, y, fill=color, text=text, font=(font, fontsize, fontspecifics))
 def SQUARE(x1:int, y1:int, x2:int, y2:int, color:str):
     canvas.create_rectangle(x1, y1, x2, y2, fill=color)
 def LINE(x1:int, y1:int, x2:int, y2:int, color:str, thickness:int):
@@ -21,6 +25,8 @@ def BGCOLOR(color:str):
     canvas.config(bg=color)
 def PIXEL(x:int, y:int, color:str):
     canvas.create_rectangle(x, y, x, y, fill=color)
-import file
+def END():
+    ...
+import file 
 
 root.mainloop()

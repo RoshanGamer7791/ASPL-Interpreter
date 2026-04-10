@@ -183,3 +183,4 @@ cython_debug/
 # Testing Stuff
 file.py
 test.aspl
+test.png

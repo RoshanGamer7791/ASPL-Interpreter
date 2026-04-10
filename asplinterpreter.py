@@ -1,32 +1,72 @@
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 
 root = tk.Tk()
-root.geometry("800x600")
+root.geometry("1200x800")
 root.title("Drawing Preview")
 style = ttk.Style()
 style.theme_use("clam")
 canvas = tk.Canvas(root, bg="black")
-canvas.place(x=0, y=0, width=800, height=600)
+canvas.place(x=0, y=0, width=1200, height=800)
 
-def START():
-    ...
+
+def START(): ...
 def PRINT(text: str):
-    canvas.create_text(400, 300, fill="white", text=text)
-def SPECIALTEXT(text:str, x:int, y:int, color:str, font:str, fontsize:int, fontspecifics:str):
-    canvas.create_text(x, y, fill=color, text=text, font=(font, fontsize, fontspecifics))
-def SQUARE(x1:int, y1:int, x2:int, y2:int, color:str):
+    canvas.create_text(600, 400, fill="white", text=text)
+
+
+def SPECIALTEXT(
+    text: str, x: int, y: int, color: str, font: str, fontsize: int, fontspecifics: str
+):
+    canvas.create_text(
+        x, y, fill=color, text=text, font=(font, fontsize, fontspecifics)
+    )
+
+
+def SQUARE(x1: int, y1: int, x2: int, y2: int, color: str):
     canvas.create_rectangle(x1, y1, x2, y2, fill=color)
-def LINE(x1:int, y1:int, x2:int, y2:int, color:str, thickness:int):
+
+
+def LINE(x1: int, y1: int, x2: int, y2: int, color: str, thickness: int):
     canvas.create_line(x1, y1, x2, y2, fill=color, width=thickness)
-def TRI(x1:int, y1:int, x2:int, y2:int, x3:int, y3:int, color:str):
+
+
+def TRI(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int, color: str):
     canvas.create_polygon(x1, y1, x2, y2, x3, y3, fill=color)
-def BGCOLOR(color:str):
+
+
+def BGCOLOR(color: str):
     canvas.config(bg=color)
-def PIXEL(x:int, y:int, color:str):
+
+
+def PIXEL(x: int, y: int, color: str):
     canvas.create_rectangle(x, y, x, y, fill=color)
-def END():
-    ...
-import file 
+
+
+def END(): ...
+def CREATEVAR(var, val):
+    exec(f"{var} = {val}")
+
+
+def SETVAR(var, val):
+    exec(f"{var} = {val}")
+
+
+def ADDVAR(var, val):
+    exec(f"{var} += {val}")
+
+
+def IMAGE(x: int, y: int, image_path: str, width: int, height: int):
+    img = Image.open(image_path)
+    resizedimg = img.resize((width, height))
+    imgtk = ImageTk.PhotoImage(resizedimg)
+    label = tk.Label(canvas, image=imgtk)
+    label.image = imgtk
+    label.place(x=x, y=y)
+
+
+import file
 
 root.mainloop()
+1
